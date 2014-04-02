@@ -1,0 +1,17 @@
+'pt-BR':
+  errors:
+    messages:
+      not_saved:
+        one: "Corrija o erro abaixo antes de continuar:"
+        other: "Corrija os erros abaixo antes de continuar:"
+
+  devise:
+    failure:
+      already_authenticated: 'Você já está autenticado.'
+      unauthenticated: 'Você precisa se autenticar para acessar o sistema.'
+      invalid: 'Este usuário não existe ou a senha está incorreta.'
+      user:
+        not_found_in_database: 'Este usuário não existe.'
+    sessions:
+      signed_in: 'Autenticado com sucesso.'
+      signed_out: 'Sua sessão foi encerrada com sucesso.'

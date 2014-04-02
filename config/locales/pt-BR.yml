@@ -1,0 +1,34 @@
+'pt-BR':
+  flash:
+    users:
+      create:
+        notice: 'Usuário criado com sucesso.'
+      update:
+        notice: 'Usuário atualizado com sucesso.'
+      destroy:
+        notice: 'Usuário excluído com sucesso.'
+        alert: 'O Usuário não pôde ser excluído.'
+  activerecord:
+    errors:
+      messages:
+        blank: 'não pode ficar em branco'
+        invalid: 'não está em um formato válido'
+        too_short: 'deve conter pelo menos 6 caracteres'
+        too_long: 'deve conter no máximo 24 caracteres'
+        confirmation: 'não foi confirmada'
+        taken: 'já está cadastrado'
+        inclusion: 'deve ser selecionada na lista'
+    models:
+      user: 'Usuário'
+    attributes:
+      user:
+        username: 'Nome de Usuário'
+        password: 'Senha'
+  date:
+    day_names: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
+    month_names: ['', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+  time:
+    formats:
+      default: '%A %d/%m/%y %H:%M'
+      text_field: '%d/%m/%Y %H:%M'
+      full_date: '%d de %B de %Y'
