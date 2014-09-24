@@ -11,6 +11,7 @@ gem 'pg'
 gem 'devise'
 gem 'kaminari'
 gem 'responders'
+gem 'omniauth-salesforce'
 
 # Frontend Features
 gem 'rails-assets-jquery'

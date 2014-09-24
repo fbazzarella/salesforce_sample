@@ -44,5 +44,10 @@ module NewApp
     config.action_view.field_error_proc = Proc.new do |html_tag|
       html_tag.html_safe
     end
+
+    # Adding integration with Salesforce through Omniauth
+    config.middleware.use OmniAuth::Builder do
+      provider :salesforce, ENV['SALESFORCE_KEY'], ENV['SALESFORCE_SECRET']
+    end
   end
 end
