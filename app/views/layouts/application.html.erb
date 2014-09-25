@@ -43,7 +43,7 @@
           </ul>
           <% if current_user.present? %>
             <div class="nav navbar-nav navbar-right salesforce-integration">
-              <% if current_user.salesforce_auth.present? %>
+              <% if current_user.integrated_with_salesforce? %>
                 <%= link_to 'Desativar Integração com Salesforce', omniauth_destroy_path, class: 'btn btn-sm navbar-btn btn-danger', data: {method: :delete} %></li>
               <% else %>
                 <%= link_to 'Ativar Integração com Salesforce', '/auth/salesforce', class: 'btn btn-sm navbar-btn btn-primary' %></li>

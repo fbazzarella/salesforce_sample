@@ -1,23 +1,38 @@
 <h1>Nova Pessoa</h1>
 
-<%= form_for @person, html: {role: 'form'} do |f| %>
-  <%= def resource; @person; end; devise_error_messages! %>
+<%= def resource; @person; end; devise_error_messages! %>
 
-  <fieldset>
-    <%= render partial: 'field', locals: {f: f}, collection: Person::COMMON_FIELDS %>
+<div class="col-xs-12 col-md-8">
+  <%= form_for @person, html: {class: 'row', role: 'form'} do |f| %>
 
-    <div class="form-group row">
-      <div class="col-xs-12 col-sm-5">
-        <span class="help-block">
-          Ao adicionar uma Pessoa, ela será adicionada automaticamente à sua conta do Salesforce. A sincronização ocorrerá em segundo plano e em poucos segundos esta pessoa estará visível na sua aba <strong>Contatos</strong> dentro do Salesforce.
-          <% if current_user.salesforce_auth.nil? %>
-            Para integrar sua conta, clique no botão azul no topo desta página e digite seus dados de acesso no Salesforce.
-          <% end %>
-        </span>
-      </div>
-    </div>
+    <fieldset>
+      <%= render partial: 'field', locals: {f: f}, collection: Person::COMMON_FIELDS %>
 
-    <%= f.submit 'Adicionar', class: 'btn btn-primary' %>
-    <%= link_to 'Cancelar', people_path, class: 'btn btn-default' %>
-  </fieldset>
-<% end %>
+      <%= f.submit 'Adicionar', class: 'btn btn-primary' %>
+      <%= link_to 'Cancelar', people_path, class: 'btn btn-default' %>
+    </fieldset>
+  <% end %>
+</div>
+<div class="col-xs-12 col-md-4">
+  <div class="row">
+    <h3>Integração com Salesforce</h3>
+    <p>
+      Ao adicionar uma Pessoa, ela será adicionada automaticamente à sua conta do Salesforce. A sincronização ocorrerá em segundo plano e em poucos segundos esta pessoa estará visível na sua aba <strong>Contatos</strong>.
+    </p>
+    <% if not current_user.integrated_with_salesforce? %>
+      <br />
+      <h4><span class="label label-danger">Integração Desativada</span></h4>
+      <p>
+        Para integrar sua conta, clique no botão azul no canto superior direito desta página e digite os dados de acesso da sua conta no Salesforce.
+      </p>
+    <% end %>
+    <br />
+    <h4><span class="label label-danger">Atenção</span></h4>
+    <p>
+      Os campos <strong>Empresa</strong>, <strong>Cargo</strong> e <strong>Website</strong> não existem por padrão no aplicativo <strong>Contatos</strong> do Salesforce e será necessário a criação destes de forma manual. Eles deverão se chamar <strong>Company</strong>, <strong>JobTitle</strong> e <strong>Website</strong>, respectivamente. A ausência destes campos não impede a sincronização, porém tais informações não estarão disponíveis em sua conta.
+    </p>
+    <p>
+      Veja como criar campos personalizados <a href="http://www.salesforce.com/_app/video/misc/help/How_to_Create_a_Custom_Field_in_Salesforce/" title="Como criar um campo personalizado no Salesforce" target="_blank">neste link</a>.
+    </p>
+  </div>
+</div>

@@ -8,6 +8,7 @@ gem 'thin'
 gem 'pg'
 
 # Backend Features
+gem 'virtus'
 gem 'devise'
 gem 'kaminari'
 gem 'responders'

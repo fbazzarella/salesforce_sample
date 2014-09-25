@@ -7,14 +7,14 @@ RSpec.describe UsersController, type: :controller do
     context 'when logged in' do
       login!
 
-      let!(:auth_hash) { {'code' => '123456', 'state' => '654321'} }
+      let!(:auth_hash) { {'credentials' => {'token' => '123456'}} }
 
       before do
         request.env['omniauth.auth'] = auth_hash
         get :omniauth_callback, provider: 'salesforce'
       end
 
-      it { expect(@current_user.reload.salesforce_auth).to be_eql(auth_hash) }
+      it { expect(@current_user.reload.salesforce_auth.token).to be_eql(auth_hash['credentials']['token']) }
       it { expect(flash[:notice]).to be_eql(I18n.t('omniauth.callback.salesforce')) }
       it { is_expected.to redirect_to(root_path) }
     end
@@ -49,7 +49,7 @@ RSpec.describe UsersController, type: :controller do
 
       before { delete :omniauth_destroy }
 
-      it { expect(@current_user.reload.salesforce_auth).to be_nil }
+      it { expect(@current_user.reload.salesforce_auth.token).to be_nil }
       it { expect(flash[:notice]).to be_eql(I18n.t('omniauth.destroy.salesforce')) }
       it { is_expected.to redirect_to(root_path) }
     end

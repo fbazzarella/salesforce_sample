@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def omniauth_callback
-    current_user.update_attribute(:salesforce_auth, request.env['omniauth.auth'])
+    current_user.update_attribute(:salesforce_auth, request.env['omniauth.auth']['credentials'])
     redirect_to(root_path, notice: I18n.t('omniauth.callback.salesforce'))
   end
 
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def omniauth_destroy
-    current_user.update_attribute(:salesforce_auth, nil)
+    current_user.update_attribute(:salesforce_auth, {})
     redirect_to(root_path, notice: I18n.t('omniauth.destroy.salesforce'))
   end
 end
