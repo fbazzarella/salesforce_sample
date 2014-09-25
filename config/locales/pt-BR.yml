@@ -1,4 +1,11 @@
 'pt-BR':
+  omniauth:
+    callback:
+      salesforce: 'Integração com Salesforce efetuada com sucesso.'
+    failure:
+      salesforce: 'Integração com Salesforce falhou. Por favor, tente novamente.'
+    destroy:
+      salesforce: 'Integração com Salesforce finalizada com sucesso.'
   flash:
     users:
       create:
