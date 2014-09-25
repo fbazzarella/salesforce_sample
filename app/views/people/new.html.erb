@@ -9,7 +9,7 @@
     <div class="form-group row">
       <div class="col-xs-12 col-sm-5">
         <span class="help-block">
-          Ao criar uma Pessoa, ela será adicionada automaticamente à sua conta do Salesforce. A sincronização ocorrerá em segundo plano e em poucos segundos esta pessoa estará visível na sua aba <strong>Contato</strong> dentro do Salesforce.
+          Ao adicionar uma Pessoa, ela será adicionada automaticamente à sua conta do Salesforce. A sincronização ocorrerá em segundo plano e em poucos segundos esta pessoa estará visível na sua aba <strong>Contatos</strong> dentro do Salesforce.
           <% if current_user.salesforce_auth.nil? %>
             Para integrar sua conta, clique no botão azul no topo desta página e digite seus dados de acesso no Salesforce.
           <% end %>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <%= f.submit 'Criar', class: 'btn btn-primary' %>
+    <%= f.submit 'Adicionar', class: 'btn btn-primary' %>
     <%= link_to 'Cancelar', people_path, class: 'btn btn-default' %>
   </fieldset>
 <% end %>

@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   def index
+    respond_with @people = people.order(:name)
   end
 
   def new

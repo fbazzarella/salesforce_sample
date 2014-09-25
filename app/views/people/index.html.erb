@@ -3,4 +3,31 @@
   <%= link_to new_person_path, class: 'btn btn-sm btn-primary' do %>
     <%= glyph(:plus) %> Adicionar
   <% end %>
-<h1>
+</h1>
+
+<% if @people.any? %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <% Person::COMMON_FIELDS.each do |field| %>
+            <th><%= I18n.t("activerecord.attributes.person.#{field}") %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @people.each do |p| %>
+          <tr>
+            <% Person::COMMON_FIELDS.each do |field| %>
+              <td><%= p.send(field) %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p class="alert alert-info">
+    Você ainda não adicionou nenhuma Pessoa. Para adicionar uma, clique no botão azul acima.
+  </p>
+<% end %>

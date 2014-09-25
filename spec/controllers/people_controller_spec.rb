@@ -7,8 +7,14 @@ RSpec.describe PeopleController, type: :controller do
     context 'when logged in' do
       login!
 
+      let!(:person1) { create(:person, user: @current_user) }
+      let!(:person2) { create(:person) }
+
       before { get :index }
 
+      it { expect(assigns(:people)).to be_a(ActiveRecord::Relation) }
+      it { expect(assigns(:people)).to include(person1) }
+      it { expect(assigns(:people)).to_not include(person2) }
       it { is_expected.to respond_with 200 }
     end
 
