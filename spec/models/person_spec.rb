@@ -7,8 +7,10 @@ RSpec.describe Person, type: :model do
 
   it { should allow_value('email@example.com').for(:email) }
   it { should_not allow_value('invalid.email').for(:email) }
+  it { should allow_value('').for(:email) }
+  it { should allow_value(nil).for(:email) }
 
-  %i(name last_name email company job_title phone website).each do |field|
+  Person::COMMON_FIELDS.each do |field|
     it { should ensure_length_of(field).is_at_most(255) }
   end
 end

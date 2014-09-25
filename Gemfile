@@ -16,6 +16,7 @@ gem 'omniauth-salesforce'
 # Frontend Features
 gem 'rails-assets-jquery'
 gem 'rails-assets-jquery-ujs'
+gem 'rails-assets-jquery-maskedinput'
 gem 'twitter-bootstrap-rails',
   github: 'seyhunak/twitter-bootstrap-rails',
   branch: 'bootstrap3'

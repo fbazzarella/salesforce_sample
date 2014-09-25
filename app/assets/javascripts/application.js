@@ -12,10 +12,13 @@
 //
 //= require jquery
 //= require jquery-ujs
+//= require jquery-maskedinput/src/jquery.maskedinput
 //= require twitter/bootstrap
 //= require_tree .
 
 $(function () {
-  $('a[rel~=popover], .has-popover').popover();
-  $('a[rel~=tooltip], .has-tooltip').tooltip();
+  $('#person_phone').mask('(99) 9999-9999?9');
+
+  // $('a[rel~=popover], .has-popover').popover();
+  // $('a[rel~=tooltip], .has-tooltip').tooltip();
 });
