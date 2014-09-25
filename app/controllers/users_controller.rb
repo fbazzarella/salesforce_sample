@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def index
-  end
-
   def omniauth_callback
     current_user.update_attribute(:salesforce_auth, request.env['omniauth.auth'])
     redirect_to(root_path, notice: I18n.t('omniauth.callback.salesforce'))
