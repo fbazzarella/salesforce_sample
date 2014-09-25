@@ -15,22 +15,39 @@
       destroy:
         notice: 'Usuário excluído com sucesso.'
         alert: 'O Usuário não pôde ser excluído.'
+    people:
+      create:
+        notice: 'Pessoa criada com sucesso.'
+      update:
+        notice: 'Pessoa atualizada com sucesso.'
+      destroy:
+        notice: 'Pessoa excluída com sucesso.'
+        alert: 'A Pessoa não pôde ser excluída.'
   activerecord:
     errors:
       messages:
         blank: 'não pode ficar em branco'
         invalid: 'não está em um formato válido'
-        too_short: 'deve conter pelo menos 6 caracteres'
-        too_long: 'deve conter no máximo 24 caracteres'
+        too_short: "deve conter pelo menos #{count} caracteres"
+        too_long: "deve conter no máximo #{count} caracteres"
         confirmation: 'não foi confirmada'
         taken: 'já está cadastrado'
         inclusion: 'deve ser selecionada na lista'
     models:
       user: 'Usuário'
+      person: 'Pessoa'
     attributes:
       user:
         username: 'Nome de Usuário'
         password: 'Senha'
+      person:
+        name: 'Nome'
+        last_name: 'Sobrenome'
+        email: 'E-mail'
+        company: 'Empresa'
+        job_title: 'Cargo'
+        phone: 'Telefone'
+        website: 'Website'
   date:
     day_names: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
     month_names: ['', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']

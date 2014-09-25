@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :people, dependent: :restrict_with_error
+
   devise :database_authenticatable
 
   store_accessor :salesforce_auth
