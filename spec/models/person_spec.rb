@@ -45,7 +45,7 @@ RSpec.describe Person, type: :model do
 
     before { Salesforce::Contact.stub_chain(:new, :create).and_return(true) }
 
-    xit { expect(person.send(:create_salesforce_contact)).to be_eql(true) }
+    it { expect(person.send(:create_salesforce_contact)).to be_eql(true) }
   end
 
   describe 'private methods' do

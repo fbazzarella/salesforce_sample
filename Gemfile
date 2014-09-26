@@ -14,6 +14,8 @@ gem 'sidekiq'
 gem 'kaminari'
 gem 'responders'
 gem 'omniauth-salesforce'
+gem 'salesforce',
+  github: 'fbazzarella/salesforce_sample_gem'
 
 # Frontend Features
 gem 'rails-assets-jquery'

@@ -31,7 +31,7 @@ class Person < ActiveRecord::Base
   end
 
   def create_salesforce_contact
-    # Salesforce::Contact.new(salesforce_credentials).create(salesforce_contact_attributes)
+    Salesforce::Contact.new(salesforce_credentials).create(salesforce_contact_attributes)
   end
 
   def salesforce_contact_attributes

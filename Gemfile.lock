@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/fbazzarella/salesforce_sample_gem.git
+  revision: 845d4a9699c16077978121500f8e1782381f387a
+  specs:
+    salesforce (0.0.1)
+      databasedotcom
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -56,6 +63,9 @@ GEM
     commonjs (0.2.7)
     connection_pool (2.0.0)
     daemons (1.1.9)
+    databasedotcom (1.0.7)
+      json
+      multipart-post (>= 1.1.3)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (3.3.0)
@@ -255,6 +265,7 @@ DEPENDENCIES
   rails_12factor
   responders
   rspec-rails
+  salesforce!
   sass-rails
   shoulda-matchers
   shuttle
