@@ -1,7 +1,17 @@
 # Set your custom environment variables here. Such as API Keys:
 
+# You should fill following environment variables with Client Key and Client Secret
+# of your Connected App on Salesforce Developer Account
+
 # ENV['SALESFORCE_KEY']    = 'AAAABBBBCCCCDDDD'
 # ENV['SALESFORCE_SECRET'] = 'AAAABBBBCCCCDDDD'
+
+# If you deploy your app on Heroku, set config vars running the commands:
+
+# heroku config:set SALESFORCE_KEY=AAAABBBBCCCCDDDD
+# heroku config:set SALESFORCE_SECRET=AAAABBBBCCCCDDDD
+
+# -----------------------------------------------------------------------------
 
 # ENV['DEVISE_SECRET_KEY'] = 'AAAABBBBCCCCDDDD'
 # ENV['APP_SECRET_TOKEN']  = 'AAAABBBBCCCCDDDD'
