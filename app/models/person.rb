@@ -12,17 +12,27 @@ class Person < ActiveRecord::Base
   validates *COMMON_FIELDS, length: {maximum: 255}
 
   SFORCE_FIELDS = {
-    FirstName: :name,
-    LastName: :last_name,
-    Email: :email,
-    Company__c: :company,
+    FirstName:   :name,
+    LastName:    :last_name,
+    Email:       :email,
+    Company__c:  :company,
     JobTitle__c: :job_title,
-    Phone: :phone,
-    Website__c: :website }
+    Phone:       :phone,
+    Website__c:  :website }
 
   SFORCE_FIELDS.each_pair {|k, v| alias_attribute(k, v)}
 
+  after_create :delay_salesforce_contact_creation
+
   private
+
+  def delay_salesforce_contact_creation
+    delay.create_salesforce_contact if user.integrated_with_salesforce?
+  end
+
+  def create_salesforce_contact
+    # Salesforce::Contact.new(salesforce_credentials).create(salesforce_contact_attributes)
+  end
 
   def salesforce_contact_attributes
     SFORCE_FIELDS.keys.inject({}) {|h, a| h.merge({a.to_s => send(a)})}
