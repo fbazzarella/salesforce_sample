@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   def integrated_with_salesforce?
     salesforce_auth.token.present?
   end
+
+  def salesforce_credentials
+    salesforce_auth.to_hash.except(:expires).values
+  end
 end

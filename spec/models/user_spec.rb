@@ -17,4 +17,11 @@ RSpec.describe User, type: :model do
     it { expect(integrated_user.integrated_with_salesforce?).to be_eql(true) }
     it { expect(not_integrated_user.integrated_with_salesforce?).to be_eql(false) }
   end
+
+  describe '.salesforce_credentials' do
+    let!(:auth_hash) { {token: '123456', expires: false, instance_url: 'lol.com'} }
+    let!(:user) { create(:user, salesforce_auth: auth_hash) }
+
+    it { expect(user.salesforce_credentials).to be_eql(['123456', 'lol.com']) }
+  end
 end
