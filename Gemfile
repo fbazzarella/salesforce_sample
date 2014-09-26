@@ -10,6 +10,7 @@ gem 'pg'
 # Backend Features
 gem 'virtus'
 gem 'devise'
+gem 'sidekiq'
 gem 'kaminari'
 gem 'responders'
 gem 'omniauth-salesforce'
